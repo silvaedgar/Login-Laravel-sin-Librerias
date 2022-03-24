@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +38,18 @@ Route::get('/register', function () {
 
 Route::post('/register',[RegisterController::class,'store'])->name('register');
 
-Route::get('/menu', function () {
-    return view('menu');
-});
+Route::get('/compras', function () {
+    return view('compras');
+})->middleware('can:compras')->name('compras');
+
+Route::get('/ventas', function () {
+    return view('ventas');
+})->middleware('can:ventas')->name('ventas');
+
+Route::get('/almacen', function () {
+    return view('almacen');
+})->middleware('can:almacen')->name('almacen');
 
 Route::resource('users',UserController::class)->names('users');
+Route::resource('permissions',PermissionController::class)->names('permissions');
+Route::resource('roles',RoleController::class)->names('roles');

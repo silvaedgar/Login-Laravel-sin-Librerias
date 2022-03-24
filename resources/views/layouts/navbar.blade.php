@@ -24,97 +24,6 @@
     </head>
 <body class="antialiased">
 
-        {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
- --}}
-        {{-- <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">Navbar</a>
-            <div class="container-fluid">
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
- --}}
-        {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
-
-
-
-
-          <div></div>
-
-
- --}}
     <nav class="navbar navbar-expand-lg navbar-warning bg-info fixed-top">
         <a class="navbar-brand">Login Laravel</a>
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,27 +36,55 @@
                 </li>
             </ul>
             @auth
-                <ul class="navbar-nav mr-auto active">
-                    <li class="ml-4">
-                        <a href="{{ route('users.index') }}" aria-disabled="true">Mantenimiento de Usuarios</a>
+                <ul class="ml-4 navbar-nav active">
+                    <li class="nav-item dropdown">
+                        <a href="#pablo" id="navbarDropdownMaintenance" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mantenimiento   </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMaintenance">
+                            @can('users.index')
+                                <a class="dropdown-item" href="{{ route('users.index')}}">Usuarios</a>
+                            @endcan
+                            @can('roles.index')
+                                <a class="dropdown-item" href="{{ route('roles.index')}}">Roles</a>
+                            @endcan
+                        </div>
                     </li>
-                    <li class="ml-4">
-                        <a  href="menu"  aria-disabled="true">Modulo de Ventas</a>
+                    <li class="nav-item dropdown ml-4">
+                        <a href="#pablo" id="navbarDropdownModule" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Modulos   </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownModule">
+                            @can('compras')
+                                <a class="dropdown-item" href="{{ route('compras') }}">Modulo de Compras</a>
+                            @endcan
+                            @can('ventas')
+                                <a class="dropdown-item" href="{{ route('ventas')  }}">Modulo de Ventas</a>
+                            @endcan
+                            @can('almacen')
+                                <a class="dropdown-item" href="{{ route('almacen') }}">Modulo de Almacen</a>
+                            @endcan
+                        </div>
                     </li>
-                    <li class="ml-4">
-                        <a  href="menu" aria-disabled="true">Modulo de Almacen</a>
-                    </li>
+
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav mr-auto active">
-                        <li>
-                            <form action="{{ route('logout')}}" method="POST">
-                                @csrf
-                                <a href="#" onclick="this.closest('form').submit()"> Logout </a>
-                            </form>
+                    <ul style="list-style: none">
+                        <li class="nav-item dropdown ms-4">
+                            <a href="#pablo" id="navbarDropdownProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">person</i> {{ Auth::user()->name }}
+
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                <form action="{{ route('logout')}}" method="POST">
+                                    @csrf
+                                    <a href="#" onclick="this.closest('form').submit()"> Logout </a>
+                                </form>
+                            </div>
                         </li>
                     </ul>
-                    <ul></ul>
+                    <ul style="list-style: none">
+                    </ul>
+                    <ul style="list-style: none">
+                    </ul>
                 </div>
             @else
                 <div class="navbar-collapse justify-content-end text-white">
