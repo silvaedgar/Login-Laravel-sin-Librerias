@@ -24,9 +24,9 @@
     </head>
 <body class="antialiased">
 
-    <nav class="navbar navbar-expand-lg navbar-warning bg-info fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-warning navbar-light bg-info fixed-top">
         <a class="navbar-brand">Login Laravel</a>
-        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" data-bs-target="#my-nav" data-bs-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="my-nav" class="collapse navbar-collapse text-white">

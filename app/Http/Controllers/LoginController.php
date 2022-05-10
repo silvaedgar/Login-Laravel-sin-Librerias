@@ -27,12 +27,6 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return  redirect('home');
-        // $credentials = $request->only('email','password');
-
-        // if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
-        //     return redirect('home');
-
-        // return redirect()->route('login')->with('status','Datos de email y/o password invalidos');
     }
 
 }
