@@ -1,5 +1,5 @@
 ## Descripcion 
-<p > Modulo de Laravel que realiza un login y logout sin el uso de librerias externas. Permite el registro de usuarios y al ingresar se muestra una barra de navegacion, dando la opción de registrar otros usuarios </p>
+<p > Modulo de Laravel que realiza un login y logout sin el uso de librerias externas. Igualmente contiene ejemplo del sistema de Roles y Permisos Spatie. Permite el registro de usuarios y roles. Los permisos se crean en el seeder. El modulo hace uso de una barra de navegación para ejemplificar el uso de roles y permisos</p>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
